@@ -1,0 +1,56 @@
+{
+  "expo": {
+    "name": "Smart Food Donation & Pickup App",
+    "slug": "smart-food-donation-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#16a34a"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCameraUsageDescription": "This app needs camera access to let donors snap photos of food items available for donation.",
+        "NSPhotoLibraryUsageDescription": "This app needs photo library access to upload photos of surplus food items.",
+        "NSLocationWhenInUseUsageDescription": "This app uses your location to show available food donations nearby and calculate pickup distances."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "permissions": [
+        "CAMERA",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE",
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Allow Smart Food Donation App to access your photos so you can attach food donation images."
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow Smart Food Donation App to access your location to find nearby food donations."
+        }
+      ]
+    ]
+  }
+}
