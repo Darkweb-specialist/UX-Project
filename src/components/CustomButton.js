@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Pressable, Text, StyleSheet, Animated, ActivityIndicator, View } from 'react-native';
+import { Pressable, Text, StyleSheet, Animated, ActivityIndicator, View, Platform } from 'react-native';
 import colors from '../theme/colors';
 
 export const CustomButton = ({
@@ -18,7 +18,7 @@ export const CustomButton = ({
   const handlePressIn = () => {
     Animated.spring(scaleAnim, {
       toValue: 0.96,
-      useNativeDriver: true,
+      useNativeDriver: Platform.OS !== 'web',
       speed: 30,
       bounciness: 4,
     }).start();
@@ -27,7 +27,7 @@ export const CustomButton = ({
   const handlePressOut = () => {
     Animated.spring(scaleAnim, {
       toValue: 1,
-      useNativeDriver: true,
+      useNativeDriver: Platform.OS !== 'web',
       speed: 30,
       bounciness: 4,
     }).start();
@@ -112,6 +112,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row',
+    cursor: Platform.OS === 'web' ? 'pointer' : 'default',
   },
   contentRow: {
     flexDirection: 'row',
